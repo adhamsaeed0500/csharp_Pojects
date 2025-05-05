@@ -1,0 +1,39 @@
+# Compiled object files and binaries
+bin/
+obj/
+
+# Visual Studio test results
+TestResults/
+
+# NUnit, xUnit, MSTest logs
+*.trx
+*.coverage
+*.json
+
+# Code coverage reports
+*.coveragexml
+coverage/
+
+# Build artifacts
+*.dll
+*.exe
+*.pdb
+
+# IDE and editor files
+.vscode/
+.idea/
+*.suo
+*.user
+*.tlog
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Package dependencies
+node_modules/
+packages/
+*.nupkg
+
+# Generated files
+*.generated.*
