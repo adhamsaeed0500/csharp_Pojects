@@ -8,44 +8,105 @@
             // 1- add task 
             // 2- remove task
             // 3- show all tasks 
-            // 4- mark task as completed 
-            // 5- exist 
-
-
-            Console.WriteLine("welcome user ");
-            Console.WriteLine("enter choice from 1-5");
-
-            string choice = Console.ReadLine();
-
-            switch (choice)
+            // 4- exist 
+            Boolean exist = false;
+            while (!exist)
             {
-                case "1":
-                    AddTask();
-                    break;
+                Console.WriteLine("welcome user ");
+                Console.WriteLine("enter choice from 1-5");
+                Console.WriteLine("1- add task ");
+                Console.WriteLine("2- showall task");
+                Console.WriteLine("3- Remove task");
+                Console.WriteLine("4- exist");
+
+
+                string choice = Console.ReadLine();
+
+                switch (choice)
+                {
+                    case "1":
+                        AddTask();
+                        break;
+                    case "2":
+                        ShowAllTasks();
+                        break;
+                    case "3":
+                        RemoveTask();
+                        break;
+                    case "4":
+                        exist = true;
+                        break;
+
+
+
+                }
             }
-
-
-
         }
 
 
         private static void AddTask()
         {
-            Console.WriteLine("enter you task ");
-            string task = Console.ReadLine();
-          
-            try
-            {
-             tasks.AddLast(task);
+            Boolean add = true;
 
-            }catch (Exception ex)
+            while (add)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(ex.ToString());
+                try
+                {
+                    Console.WriteLine("enter you task ");
+
+                    tasks.AddLast(Console.ReadLine());
+
+                    Console.WriteLine("task Added");
+                    Console.WriteLine("would you like to add another task Y/N");
+                    char input = Convert.ToChar(Console.ReadLine());
+                    switch (input)
+                    {
+                        case 'Y':
+                            add = true;
+                            break;
+                        case 'N':
+                            add = false;
+                            break;
+                        default:
+                            add = false;
+                            break;
+                    }                
+                }
+                catch (Exception ex)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(ex.ToString());
+                }
             }
 
-            Console.WriteLine("task Added");
+
 
 
         }
-}   }
+        private static void RemoveTask()
+        {
+            ShowAllTasks();
+            Console.WriteLine("which task whould you like to remove");
+            string input = Console.ReadLine();
+            tasks.Remove(input);
+            Console.WriteLine("task removed");
+
+        }
+
+        private static void ShowAllTasks()
+        {
+            int number = 1;
+            if (tasks.Count < number)
+                Console.WriteLine("there are no tasks to show");
+
+
+            foreach (var item in tasks)
+            {
+                Console.WriteLine($"{number} - {item}");
+                number++;
+            }
+
+        }
+
+
+    }   }
