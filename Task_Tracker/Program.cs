@@ -24,21 +24,10 @@
 
                 switch (choice)
                 {
-                    case "1":
-                        AddTask();
-                        break;
-                    case "2":
-                        ShowAllTasks();
-                        break;
-                    case "3":
-                        RemoveTask();
-                        break;
-                    case "4":
-                        exist = true;
-                        break;
-
-
-
+                    case "1":AddTask(); break;
+                    case "2":ShowAllTasks(); break;
+                    case "3":RemoveTask(); break;
+                    case "4":exist = true; break;
                 }
             }
         }
@@ -59,17 +48,12 @@
                     Console.WriteLine("task Added");
                     Console.WriteLine("would you like to add another task Y/N");
                     char input = Convert.ToChar(Console.ReadLine());
+
                     switch (input)
                     {
-                        case 'Y':
-                            add = true;
-                            break;
-                        case 'N':
-                            add = false;
-                            break;
-                        default:
-                            add = false;
-                            break;
+                        case 'Y':add = true; break;
+                        case 'N':add = false; break;
+                        default:add = false; break;
                     }                
                 }
                 catch (Exception ex)
