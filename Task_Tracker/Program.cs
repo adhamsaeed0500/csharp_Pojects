@@ -13,7 +13,7 @@
             while (!exist)
             {
                 Console.WriteLine("welcome user ");
-                Console.WriteLine("enter choice from 1-5");
+                Console.WriteLine("enter choice from 1-4");
                 Console.WriteLine("1- add task ");
                 Console.WriteLine("2- showall task");
                 Console.WriteLine("3- Remove task");
@@ -80,7 +80,7 @@
         private static void ShowAllTasks()
         {
             int number = 1;
-            if (tasks.Count < number)
+            if (tasks.Count <= 0)
                 Console.WriteLine("there are no tasks to show");
 
 
